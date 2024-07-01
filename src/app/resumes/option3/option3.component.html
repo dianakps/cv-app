@@ -1,0 +1,74 @@
+<div class="container">
+  <form [formGroup]="Form">
+    <div class="top">
+      <div class="profilePicture">
+        <img src="{{ this.Form.get('profilePicture')?.value }}" alt="" />
+      </div>
+      <div class="top-right">
+        <span>{{ this.Form.get("firstname")?.value }} </span>
+        <span>{{ this.Form.get("lastname")?.value }} </span> <br />
+        <p>Personal Information:</p>
+        {{ this.Form.get("personalInfo")?.value }} <br />
+        <p>Contact: {{ this.Form.get("email")?.value }}</p>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="row">
+        <div class="property"><h4>Education</h4></div>
+        <div class="content">
+          @for (item of this.Form.get("education")?.value ; track $index) { @if
+          (item.education !=='') {
+          <td class="group">
+            At {{ item.education }} from: {{ item.startDate }} until:
+            {{ item.endDate }}
+          </td>
+          } }
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="property"><h4>Experience Details</h4></div>
+        <div class="content">
+          @for (item of this.Form.get("workExperience")?.value ; track $index) {
+          @if (item.profession !== '') {
+          <td class="group">
+            As {{ item.profession }} at {{ item.company }} <br />
+            from:
+            {{ item.from }} until: {{ item.until }}
+          </td>
+          } }
+        </div>
+      </div>
+      <div class="row">
+        <div class="property"><h4>Skills</h4></div>
+        <div class="content">
+          @for (item of this.Form.get("skills")?.value ; track $index) { @if
+          (item.skill !== '') {
+          <td class="group2">{{ item.skill }}</td>
+          }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="property"><h4>Other Skills</h4></div>
+        <div class="content">
+          @for (item of this.Form.get("otherSkills")?.value ; track $index) {
+          @if (item.otherSkills !== '') {
+          {{ item.otherSkills }}
+          } }
+        </div>
+      </div>
+      <div class="row">
+        <div class="property"><h4>Languages</h4></div>
+        <div class="content">
+          @for (item of this.Form.get("languages")?.value ; track $index) { @if
+          (item.lang !== '') {
+          <td class="group2">
+            {{ item.lang }}
+          </td>
+          } }
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<button (click)="onBack()">Back</button>

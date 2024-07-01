@@ -1,0 +1,56 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onNext()">
+    <h2>Work Experience</h2>
+    <div class="edInput">
+      <table>
+        <tr>
+          <td>Profession</td>
+          <td>Company</td>
+          <td>From:</td>
+          <td>Until:</td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="profession1" /></td>
+          <td><input type="text" formControlName="company1" /></td>
+          <td><input type="date" formControlName="from1" /></td>
+          <td><input type="date" formControlName="until1" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="profession2" /></td>
+          <td><input type="text" formControlName="company2" /></td>
+          <td><input type="date" formControlName="from2" /></td>
+          <td><input type="date" formControlName="until2" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="profession3" /></td>
+          <td><input type="text" formControlName="company3" /></td>
+          <td><input type="date" formControlName="from3" /></td>
+          <td><input type="date" formControlName="until3" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="profession4" /></td>
+          <td><input type="text" formControlName="company4" /></td>
+          <td><input type="date" formControlName="from4" /></td>
+          <td><input type="date" formControlName="until4" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="profession5" /></td>
+          <td><input type="text" formControlName="company5" /></td>
+          <td><input type="date" formControlName="from5" /></td>
+          <td><input type="date" formControlName="until5" /></td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      class="error"
+      *ngIf="(Form.get('profession1')?.errors?.['required'] || Form.get('company1')?.errors?.['required'] || Form.get('from1')?.errors?.['required'] || Form.get('until1')?.errors?.['required']) && (Form.get('profession1')?.touched)"
+    >
+      *At least one field should be filled.
+    </div>
+    <div>
+      <button type="button" (click)="onBack()">Back</button>
+      <button type="submit" [disabled]="!Form.valid">Next</button>
+    </div>
+  </form>
+</div>

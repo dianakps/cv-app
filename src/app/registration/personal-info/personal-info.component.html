@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onNext()">
+    <h3>
+      In this field you may write about yourself, your goals or anything that
+      comes in mind!
+    </h3>
+    <div>
+      <textarea formControlName="text"></textarea>
+    </div>
+    <div>
+      <button type="button" (click)="onBack()">Back</button>
+      <button type="submit">Next</button>
+    </div>
+  </form>
+</div>

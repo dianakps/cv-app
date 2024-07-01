@@ -1,0 +1,60 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onNext()">
+    <h2>Education</h2>
+    <div class="edInput">
+      <table>
+        <tr>
+          <td>School/University</td>
+          <td>From:</td>
+          <td>Until:</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" formControlName="education1" required />
+          </td>
+          <td><input type="date" formControlName="education1StartDate" /></td>
+          <td><input type="date" formControlName="education1EndDate" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" formControlName="education2" />
+          </td>
+          <td><input type="date" formControlName="education2StartDate" /></td>
+          <td><input type="date" formControlName="education2EndDate" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" formControlName="education3" />
+          </td>
+          <td><input type="date" formControlName="education3StartDate" /></td>
+          <td><input type="date" formControlName="education3EndDate" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" formControlName="education4" />
+          </td>
+          <td><input type="date" formControlName="education4StartDate" /></td>
+          <td><input type="date" formControlName="education4EndDate" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" formControlName="education5" />
+          </td>
+          <td><input type="date" formControlName="education5StartDate" /></td>
+          <td><input type="date" formControlName="education5EndDate" /></td>
+        </tr>
+      </table>
+    </div>
+
+    <div
+      class="error"
+      *ngIf="(Form.get('education1')?.errors?.['required']|| Form.get('education1StartDate')?.errors?.['required' ] || Form.get('education1EndDate')?.errors?.['required'] )&& Form.get('education1')?.touched"
+    >
+      *At least one field should be filled.
+    </div>
+    <div>
+      <button type="button" (click)="onBack()">Back</button>
+      <button type="submit" [disabled]="!Form.valid">Next</button>
+    </div>
+  </form>
+</div>

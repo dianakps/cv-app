@@ -1,0 +1,44 @@
+<div id="hamburger-menu" (click)="hideHamMenu()">
+  <span id="span1">'</span><span id="span2">'</span><span id="span3">'</span>
+  <div id="top" class="hidden">
+    <ul class="navbar">
+      <li>
+        <a (click)="navigateToOptions('view')">View Profile</a>
+      </li>
+      <li>
+        <a (click)="navigateToOptions('update')">Update Profile</a>
+      </li>
+      <li>
+        <a (click)="navigateToOptions('delete')">Delete Account</a>
+      </li>
+      <li><a>Log Out</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="top">
+  <ul class="navbar">
+    <li>
+      <a (click)="navigateToOptions('view')">View Profile</a>
+    </li>
+    <li>
+      <a (click)="navigateToOptions('update')">Update Profile</a>
+    </li>
+    <li>
+      <a (click)="navigateToOptions('delete')">Delete Account</a>
+    </li>
+    <li><a>Log Out</a></li>
+  </ul>
+</div>
+<div class="middle">
+  <div class="options option1">
+    <button (click)="navigateToResume('option1')"></button>
+  </div>
+  <div class="options option2">
+    <button (click)="navigateToResume('option2')"></button>
+  </div>
+  <div class="options option3">
+    <button (click)="navigateToResume('option3')"></button>
+  </div>
+</div>
+<div class="bottom"></div>

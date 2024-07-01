@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="userCredentails" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+    <div class="credentials">
+      <div>
+        <label>Username</label>
+        <input type="text" formControlName="username" />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" formControlName="password" />
+      </div>
+      <button type="submit" [disabled]="!userCredentails.valid">Login</button>
+      <div>
+        <span
+          >Don't have an account?
+          <router-link [routerLink]="['/sign-up']">
+            <a>Sign up here!</a>
+          </router-link></span
+        >
+      </div>
+    </div>
+  </form>
+  <div>
+    <button type="button" class="backBtn" (click)="returnToWelcomePage()">
+      &#x21E6;
+    </button>
+  </div>
+</div>

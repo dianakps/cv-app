@@ -1,0 +1,80 @@
+<div class="container">
+  <form [formGroup]="Form">
+    <div class="left-side">
+      <div class="profilePicture">
+        <img src="{{ this.Form.get('profilePicture')?.value }}" alt="" />
+      </div>
+      <div>
+        <span>{{ this.Form.get("firstname")?.value }} </span>
+        <span>{{ this.Form.get("lastname")?.value }}</span>
+      </div>
+      <div>
+        <h4>Personal Informartion:</h4>
+        <span>{{ this.Form.get("personalInfo")?.value }}</span>
+      </div>
+
+      <div>Contact: {{ this.Form.get("email")?.value }}</div>
+    </div>
+    <div class="right-side">
+      <h4>Education:</h4>
+      <table>
+        <tr>
+          @for (item of this.Form.get("education")?.value ; track $index) { @if
+          (item.education !=='') {
+          <td class="group">
+            At {{ item.education }} from: {{ item.startDate }} until:
+            {{ item.endDate }}
+          </td>
+          } }
+        </tr>
+      </table>
+      <table>
+        <h4>Experience Details</h4>
+        <tr>
+          @for (item of this.Form.get("workExperience")?.value ; track $index) {
+          @if (item.profession !== '') {
+          <td class="group">
+            As {{ item.profession }} at {{ item.company }} <br />
+            from:
+            {{ item.from }} until: {{ item.until }}
+          </td>
+          } }
+        </tr>
+      </table>
+      <div class="middle">
+        <div>
+          <h4>Skills:</h4>
+          <tr>
+            @for (item of this.Form.get("skills")?.value ; track $index) { @if
+            (item.skill !== '') {
+            <td class="group">
+              {{ item.skill }}
+            </td>
+            }}
+          </tr>
+        </div>
+        <div>
+          <h4>Languages:</h4>
+          <td>
+            @for (item of this.Form.get("languages")?.value ; track $index) {
+            @if (item.lang !== '') {
+              <td class="group">
+                {{ item.lang }}
+              </td>
+            } }
+          </td>
+        </div>
+      </div>
+      <div>
+        <h4>Other Skills:</h4>
+        @for (item of this.Form.get("otherSkills")?.value ; track $index) { @if
+        (item.otherSkills !== '') {
+        {{ item.otherSkills }}
+        } }
+      </div>
+    </div>
+  </form>
+</div>
+<button (click)="onBack()">Back</button>
+
+

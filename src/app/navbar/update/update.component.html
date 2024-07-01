@@ -1,0 +1,170 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <table>
+      <tr>
+        First Name
+        <td>
+          <input
+            type="text"
+            formControlName="firstname"
+            #firstName
+            (change)="updateUser('fname', 'firstname', firstName.value, 0)"
+          />
+        </td>
+      </tr>
+      <tr>
+        Last Name
+        <td>
+          <input
+            type="text"
+            formControlName="lastname"
+            #lastname
+            (change)="updateUser('lname', 'lastname', lastname.value, 0)"
+          />
+        </td>
+      </tr>
+      <tr>
+        Email
+        <td>
+          <input
+            type="text"
+            formControlName="email"
+            #email
+            (change)="updateUser('email', 'email', email.value, 0)"
+          />
+        </td>
+      </tr>
+      <tr>
+        Personal Info
+        <td>
+          <input
+            type="text"
+            formControlName="personalInfo"
+            #personalInfo
+            (change)="
+              updateUser('pInfo', 'personalInfo', personalInfo.value, 0)
+            "
+          />
+        </td>
+      </tr>
+
+      <tr>
+        Education
+        <td>
+          @for (item of Form.get('education')?.value; track $index) {
+          <div class="group">
+            <input
+              type="text"
+              value="{{ item[0] }}"
+              #education
+              (change)="updateUser('ed', 'education', education.value, $index)"
+            />
+            <input
+              type="text"
+              value="{{ item[1] }}"
+              #startDate
+              (change)="updateUser('ed', 'startDate', startDate.value, $index)"
+            />
+            <input
+              type="text"
+              value="{{ item[2] }}"
+              #endDate
+              (change)="updateUser('ed', 'endDate', endDate.value, $index)"
+            />
+          </div>
+          }
+        </td>
+      </tr>
+
+      <tr>
+        Experience Details
+        <td>
+          @for (item of Form.get('workExperience')?.value; track $index) {
+
+          <div class="group">
+            <input
+              type="text"
+              value="{{ item[0] }}"
+              #company
+              (change)="updateUser('wE', 'company', company.value, $index)"
+            />
+            <input
+              type="text"
+              value="{{ item[1] }}"
+              #profession
+              (change)="
+                updateUser('wE', 'profession', profession.value, $index)
+              "
+            />
+            <input
+              type="text"
+              value="{{ item[2] }}"
+              #from
+              (change)="updateUser('wE', 'from', from.value, $index)"
+            />
+            <input
+              type="text"
+              value="{{ item[3] }}"
+              #until
+              (change)="updateUser('wE', 'until', until.value, $index)"
+            />
+          </div>
+          }
+        </td>
+      </tr>
+      <tr>
+        Languages
+        <td>
+          <div class="group">
+            @for (item of Form.get('languages')?.value; track $index) {
+            <input
+              type="text"
+              value="{{ item }}"
+              #language
+              (change)="updateUser('lang', 'lang', language.value, $index)"
+            />
+            }
+          </div>
+        </td>
+      </tr>
+      <tr>
+        Skills
+        <td>
+          <div class="group">
+            @for (item of Form.get('skills')?.value; track $index) {
+            <input
+              type="text"
+              value="{{ item }}"
+              #skills
+              (change)="updateUser('skills', 'skill', skills.value, $index)"
+            />
+            }
+          </div>
+        </td>
+      </tr>
+      <tr>
+        Other Skills
+        <td>
+          @for (item of Form.get('otherSkills')?.value; track $index) {
+          <input
+            type="text"
+            value="{{ item }}"
+            #otherSkills
+            (change)="
+              updateUser(
+                'otherSkills',
+                'otherSkills',
+                otherSkills.value,
+                $index
+              )
+            "
+          />
+          }
+        </td>
+      </tr>
+    </table>
+
+    <button type="submit">Update!</button>
+  </form>
+</div>
+<button (click)="onBack()">Back</button>

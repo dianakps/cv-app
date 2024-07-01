@@ -1,0 +1,52 @@
+.container {
+  background-color: yellow;
+  border: 4px dashed black;
+  width: 500px;
+  height: 500px;
+  margin-top: 5px;
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: large;
+}
+button {
+  background-color: rgb(231, 231, 145);
+  margin: 15px;
+  width: 100px;
+  height: 50px;
+  border: 3px dashed black;
+  position: relative;
+  top: 20px;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+input {
+  border: 2px dashed black;
+  width: 60%;
+  margin: 5px;
+  font-family: monospace;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+}
+
+.backBtn {
+  font-weight: bolder;
+  font-size: larger;
+  height: 30px;
+  width: 40px;
+  position: relative;
+  left: -200px;
+  top: -10px;
+}
+
+.error {
+  color: red;
+  font-size: small;
+}

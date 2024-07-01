@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onNext()">
+    <h2>Skills</h2>
+    <div class="edInput">
+      <table>
+        <tr>
+          <td></td>
+          <td>Skills</td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="skill1" /></td>
+          <td><input type="text" formControlName="skill2" /></td>
+          <td><input type="text" formControlName="skill3" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="skill4" /></td>
+          <td><input type="text" formControlName="skill5" /></td>
+          <td><input type="text" formControlName="skill6" /></td>
+        </tr>
+      </table>
+      <div class="languages">
+        <table>
+          <tr>
+            <td></td>
+            <td>Languages</td>
+          </tr>
+          <tr>
+            <td><input type="text" formControlName="lang1" /></td>
+            <td><input type="text" formControlName="lang2" /></td>
+            <td><input type="text" formControlName="lang3" /></td>
+          </tr>
+        </table>
+        <p>Other:</p>
+        <textarea class="otherText" formControlName="otherSkills"></textarea>
+      </div>
+      <div>
+        <button type="button" (click)="onBack()">Back</button>
+        <button type="submit" (click)="onNext()" [disabled]="!Form.valid">
+          Next
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

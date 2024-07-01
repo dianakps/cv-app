@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Choose your character!</h2>
+  <div class="photoDiv">
+    <img [src]="characterInput" alt="" />
+  </div>
+  <div class="characters">
+    <div><button type="button" (click)="changeEmoji()">Emoji</button></div>
+    <div><button type="button " (click)="changeAnimal()">Animal</button></div>
+  </div>
+  <div class="backNextButton">
+    <button type="button" (click)="onBack()">Back</button>
+    <button type="submit" (click)="onNext()">Next</button>
+  </div>
+</div>

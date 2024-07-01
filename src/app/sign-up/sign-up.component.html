@@ -1,0 +1,40 @@
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <div>
+      <label>First Name</label>
+      <input type="text" formControlName="firstname" />
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" formControlName="lastname" />
+    </div>
+    <div>
+      <label>Username</label>
+      <input type="text" formControlName="username" />
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password" />
+    </div>
+    <div>
+      <label>Confirm Password</label>
+      <input type="password" formControlName="password2" />
+      <div
+        class="error"
+        *ngIf="
+          profileForm.get('password2')?.hasError('passwordMismatch') &&
+          profileForm.get('password2')?.touched
+        "
+      >
+        *Passwords are not equal.
+      </div>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+  <button class="backBtn" (click)="returnToWelcomePage()">&#x21E6;</button>
+</div>

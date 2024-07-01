@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+.top {
+  width: 100vw;
+  height: 15vh;
+  background-color: yellow;
+  margin-top: -10px;
+  border: 4px dashed black;
+}
+
+.navbar {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:hover {
+  font-size: larger;
+}
+
+.middle {
+  width: 100vw;
+  height: 75vh;
+  margin-top: 10px;
+  overflow: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.options {
+  width: 20%;
+  height: 70%;
+  border: 4px dashed black;
+  background-color: yellow;
+}
+
+.option1 {
+  background-image: url(../images/option1.png);
+  background-size: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(1px);
+}
+
+.option2 {
+  background-image: url(../images/option2.png);
+  background-size: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(1px);
+}
+
+.option3 {
+  background-image: url(../images/option3.png);
+  background-size: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(1px);
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 857px) {
+  #hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #hamburger-menu > span {
+    background-color: black;
+    width: 50px;
+    height: 8px;
+    margin: 2px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .top {
+    display: none;
+  }
+
+  #top {
+    width: 100vw;
+    height: 20vh;
+    background-color: yellow;
+    margin-top: -10px;
+    border: 4px dashed black;
+  }
+
+  .hidden {
+    display: none;
+  }
+  .moved {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .middle {
+    flex-direction: column;
+  }
+
+  .options {
+    width: 40vw;
+  }
+
+  .option1,
+  .option2,
+  .option3 {
+    background-size: 50%;
+    margin: 10px 0;
+  }
+}

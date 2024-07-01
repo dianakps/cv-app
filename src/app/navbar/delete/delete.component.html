@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="Form" (ngSubmit)="onDelete(this.Form.value)">
+    <h2>Delete my account</h2>
+    <div>
+      <p>
+        We are sorry to see you go! Please fill your username and password in
+        order to delete your account.
+      </p>
+      <label for="username">Username:</label>
+      <input type="text" formControlName="username" /> <br />
+      <label for="password">Password:</label>
+      <input type="text" formControlName="password" />
+    </div>
+    <div>
+      <button type="submit">Delete</button>
+    </div>
+  </form>
+</div>
+<button (click)="onBack()">Back</button>

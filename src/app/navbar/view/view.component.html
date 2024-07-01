@@ -1,0 +1,85 @@
+<div class="container">
+  <form [formGroup]="Form">
+    <table>
+      <tr>
+        First Name
+        <td>
+          {{ this.Form.get("firstname")?.value }}
+        </td>
+      </tr>
+      <tr>
+        Last Name
+        <td>{{ this.Form.get("lastname")?.value }}</td>
+      </tr>
+      <tr>
+        Username
+        <td>{{ this.Form.get("username")?.value }}</td>
+      </tr>
+      <tr>
+        Email
+        <td>{{ this.Form.get("email")?.value }}</td>
+      </tr>
+      <tr>
+        Personal Info
+        <td>{{ this.Form.get("personalInfo")?.value }}</td>
+      </tr>
+      <tr>
+        Education
+        <td>
+          @for (item of this.Form.get("education")?.value ; track $index) {
+            @if (item.education !=='') {
+              <td class="group">
+                {{item.education}} from: {{item.startDate}} until: {{item.endDate}}
+
+              </td>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        Experience Details
+        <td>
+          @for (item of this.Form.get("workExperience")?.value ; track $index) {
+            @if (item.profession !== '') { 
+              <td class="group">
+                As {{item.profession}} at {{item.company}} from: {{item.from}} until: {{item.until}}
+              </td>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        Languages
+        <td>
+          @for (item of this.Form.get("languages")?.value ; track $index) {
+            @if (item.lang !== '') {
+              {{item.lang}}
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        Skills
+        <td>
+          @for (item of this.Form.get("skills")?.value ; track $index) {
+            @if (item.skill !== '') {
+              {{item.skill}}
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        Other Skills
+        <td>
+          @for (item of this.Form.get("otherSkills")?.value ; track $index) {
+              @if (item.otherSkills !== '') {
+                {{item.otherSkills}}
+              }
+          }
+        </td>
+      </tr>
+   
+    </table>
+  </form>
+  <button (click)="onBack()">Back</button>
+</div>
